@@ -62,6 +62,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_picture" method="post" enctype="multipart/form-data">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for caption -->
+      <div class="form-group">
+        <label for="caption" class="control-label">
+          Caption
+        </label>
+
+        <input type="text" id="caption" name="caption" placeholder="Caption" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for image_url -->
+      <div class="form-group">
+        <label for="image_url" class="control-label">
+          Image url
+        </label>
+
+        <input type="file" id="image_url" name="image_url" class="form-control">
+      </div>
+
+      <!-- Label and input for review_id -->
+      <input type="hidden" name="review_id" value="<%= @review.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Picture
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -93,6 +125,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_reply" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for review_id -->
+      <input type="hidden" name="review_id" value="<%= @review.id %>">
+
+      <!-- Label and input for ownership_id -->
+      <div class="form-group">
+        <label for="ownership_id" class="control-label">
+          Ownership
+        </label>
+
+        <%= select_tag(:ownership_id, options_from_collection_for_select(Ownership.all, :id, :user_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for content -->
+      <div class="form-group">
+        <label for="content" class="control-label">
+          Content
+        </label>
+
+        <textarea id="content" name="content" placeholder="Content" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Reply
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
