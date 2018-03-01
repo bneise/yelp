@@ -19,7 +19,7 @@
       <tr>
         <td><%= picture.caption %></td>
         <td><%= picture.image_url %></td>
-        <td><%= picture.review_id %></td>
+        <td><%= picture.review.user_id %></td>
         <td>
           <a href="/pictures/<%= picture.id %>" class="btn btn-primary">Show</a>
           <a href="/pictures/<%= picture.id %>/edit" class="btn btn-warning">Edit</a>
