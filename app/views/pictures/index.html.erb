@@ -19,7 +19,13 @@
       <tr>
         <td><%= picture.caption %></td>
         <td><img src='<%= picture.image_url %>' class='img-responsive'></td>
-        <td><%= picture.review.user_id %></td>
+        <td>
+          <% if picture.review.present? %>
+            <a href="/reviews/<%= picture.review.id %>">
+              <%= picture.review.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/pictures/<%= picture.id %>" class="btn btn-primary">Show</a>
           <a href="/pictures/<%= picture.id %>/edit" class="btn btn-warning">Edit</a>

@@ -17,8 +17,20 @@
 
       <% @replies.each do |reply| %>
       <tr>
-        <td><%= reply.review.user_id %></td>
-        <td><%= reply.ownership.user_id %></td>
+        <td>
+          <% if reply.review.present? %>
+            <a href="/reviews/<%= reply.review.id %>">
+              <%= reply.review.user_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if reply.ownership.present? %>
+            <a href="/ownerships/<%= reply.ownership.id %>">
+              <%= reply.ownership.user_id %>
+            </a>
+          <% end %>
+        </td>
         <td><%= reply.content %></td>
         <td>
           <a href="/replies/<%= reply.id %>" class="btn btn-primary">Show</a>
