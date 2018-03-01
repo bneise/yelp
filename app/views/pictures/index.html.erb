@@ -18,7 +18,7 @@
       <% @pictures.each do |picture| %>
       <tr>
         <td><%= picture.caption %></td>
-        <td><%= picture.image_url %></td>
+        <td><img src='<%= picture.image_url %>' class='img-responsive'></td>
         <td><%= picture.review.user_id %></td>
         <td>
           <a href="/pictures/<%= picture.id %>" class="btn btn-primary">Show</a>
