@@ -17,7 +17,7 @@
 
       <% @replies.each do |reply| %>
       <tr>
-        <td><%= reply.review_id %></td>
+        <td><%= reply.review.user_id %></td>
         <td><%= reply.ownership_id %></td>
         <td><%= reply.content %></td>
         <td>
